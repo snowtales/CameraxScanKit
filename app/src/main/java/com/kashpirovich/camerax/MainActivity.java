@@ -65,7 +65,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         constraintLayout = findViewById(R.id.camera_preview);
         listenableFuture = ProcessCameraProvider.getInstance(this);
-        findViewById(R.id.pick_the_photo).setOnClickListener(v ->
+        previewView = findViewById(R.id.viewFinder);
+        linearLayout = findViewById(R.id.linear_root);
+        pickPhoto = findViewById(R.id.pick_the_photo);
+                pickPhoto.setOnClickListener(v ->
         {
             Intent pick = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             pick.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
@@ -77,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
             result.launch(Manifest.permission.CAMERA);
         }
 
-        findViewById(R.id.make_photo).setOnClickListener(v -> {
+        makePhoto = findViewById(R.id.make_photo);
+        makePhoto.setOnClickListener(v -> {
             startCamera();
             findViewById(R.id.camera_preview).setVisibility(View.VISIBLE);
         });
