@@ -6,7 +6,7 @@ plugins {
 android {
     signingConfigs {
         debug {
-            storeFile file('D:\\kaystore\\key.jks')
+            storeFile file('..\\key.jks')
             storePassword 'MakeItReal'
             keyAlias 'key'
             keyPassword 'MakeItReal'
